@@ -21,7 +21,7 @@
     }
 
     .picked {
-        background: green;
+        background: yellow;
     }
     </style>
 </head>
@@ -36,6 +36,8 @@
     </button>
     <button id="pickStudent" class='center'>
         Pick Student
+    <button id="clearPickData" class='center'>
+        Clear
     </button>
     <div id="container">
         ...
@@ -43,7 +45,7 @@
     <script>
     console.clear();
     let course = 'block1';
-    let port = 1500;
+    let port = 1514;
     let students = [];
 
     function importStudents(theFile) {
@@ -153,6 +155,21 @@
     }
     let updateButton = document.getElementById("updateButton");
     updateButton.addEventListener("click", updateList);
+
+    function listClear() {
+        for (let i = 0; i < students.length; i++) {
+                students[i].clickcount = 0;
+                updateStudent(students[i]);
+    }
+
+renderList();
+}
+    let clearButton = document.getElementById("clearPickData")
+    clearButton.addEventListener("click", listClear);
+    function hello() {
+        console.log("Hello World");
+    }
+
     </script>
 </body>
 
